@@ -1,0 +1,34 @@
+<p>tarefa-component works!</p>
+
+
+
+<form [formGroup]="tarefaForm" (ngSubmit)="inserir()">
+
+  <p>
+    titulo: <input type="text" formControlName="titulo"/>
+  </p>
+  <p>
+    descricao: <input type="text" formControlName="descricao"/>
+  </p>
+  <p>
+    data de vencimento: <input type="text" formControlName="data_vencimento"/>
+  </p>
+
+  <button type="submit">enviar</button>
+
+  </form>
+
+
+
+
+  <h2>Listar </h2>
+
+  <ul>
+    @for (item of tarefa; track $index){
+       <li>  {{item.titulo}} - {{item.descricao}} - {{item.data_vencimento}}
+
+      <input type="button" value="remover" (click)="remover(item.id)" />
+
+
+    </li>
+  }
